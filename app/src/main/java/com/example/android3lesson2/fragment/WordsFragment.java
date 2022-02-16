@@ -1,9 +1,8 @@
 package com.example.android3lesson2.fragment;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,7 @@ import retrofit2.Response;
 
 
 public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
-    private final AdapterWords adapterWords = new AdapterWords();
+    private  AdapterWords adapterWords = new AdapterWords();
 
 
     @Override
@@ -33,40 +32,36 @@ public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        binding.recyclerView.setAdapter(adapterWords);
         getImages();
 
     }
 
     private void getImages() {
-        binding.etWords.addTextChangedListener(new TextWatcher() {
+        binding.btnFetch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                App.api.getImages("25685068-7116e7d30f855f738b052fb93", binding.etWords.getText().toString()).enqueue(new Callback<PixabayResponce>() {
+            public void onClick(View view) {
+                App.retrofitClient.providePixabayApi().getImages("25685068-7116e7d30f855f738b052fb93",
+                        binding.etWords.getText().toString()).enqueue(new Callback<PixabayResponce>() {
                     @Override
                     public void onResponse(Call<PixabayResponce> call, Response<PixabayResponce> response) {
-                        if (response.isSuccessful() && response.body() != null) {
+                        if (response.isSuccessful()) {
                             adapterWords.setList(response.body().getHits());
+                            binding.recyclerView.setAdapter(adapterWords);
+
                         }
                     }
 
                     @Override
                     public void onFailure(Call<PixabayResponce> call, Throwable t) {
+                        Toast.makeText(getContext(), "asema pasema", Toast.LENGTH_SHORT).show();
 
                     }
                 });
-            }
-
-
-            @Override
-            public void afterTextChanged(Editable editable) {
 
             }
         });
+
     }
+
+
 }

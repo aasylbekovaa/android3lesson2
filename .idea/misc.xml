@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/drawable/splesh.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/layout/fragment_base.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/layout/fragment_category.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/layout/fragment_words.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/layout/item_holder.xml" value="0.1796875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/android3lesson2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

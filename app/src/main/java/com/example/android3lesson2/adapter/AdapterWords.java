@@ -35,10 +35,11 @@ public class AdapterWords extends RecyclerView.Adapter<AdapterWords.HomeAdapter>
 
     public void setList(List<Hits> list) {
         this.list = list;
+        notifyDataSetChanged();
     }
 
     public class HomeAdapter extends RecyclerView.ViewHolder {
-        private final ItemHolderBinding binding;
+        private  ItemHolderBinding binding;
 
         public HomeAdapter(@NonNull ItemHolderBinding binding) {
             super(binding.getRoot());
